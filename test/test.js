@@ -141,6 +141,18 @@ describe('humps', function() {
       assert.deepEqual(humps.camelizeKeys(_object), convertedObject);
     });
 
+    it('does not attempt to process files', function() {
+      var f = new Blob()
+      var underscored = {
+        a_date: f
+      };
+      var camel = {
+        aDate: f
+      };
+      assert.deepEqual(humps.camelizeKeys(underscored), camel);
+      assert.deepEqual(humps.decamelizeKeys(camel), underscored);
+    });
+
     it('converts keys within arrays of objects', function() {
       var array = [{first_name: 'Sam'}, {first_name: 'Jenna'}],
         convertedArray = [{firstName: 'Sam'}, {firstName: 'Jenna'}],

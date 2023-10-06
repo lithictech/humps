@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+- Do not try to camelize/decamlize blobs.
+
 ## [1.1.0] - 2016-04-22
 ### Changed
 - Allow key converters to be customized with the `process` option, or by passing in a function as the second argument (https://github.com/domchristie/humps/pull/28)

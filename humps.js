@@ -11,7 +11,7 @@
 ;(function(global) {
 
   var _processKeys = function(convert, obj, options) {
-    if(!_isObject(obj) || _isDate(obj) || _isRegExp(obj) || _isBoolean(obj) || _isFunction(obj)) {
+    if(!_isObject(obj) || _isDate(obj) || _isRegExp(obj) || _isBoolean(obj) || _isFunction(obj) || _isBlob(obj)) {
       return obj;
     }
 
@@ -83,6 +83,9 @@
   };
   var _isDate = function(obj) {
     return toString.call(obj) == '[object Date]';
+  };
+  var _isBlob = function(obj) {
+    return obj instanceof Blob;
   };
   var _isRegExp = function(obj) {
     return toString.call(obj) == '[object RegExp]';
